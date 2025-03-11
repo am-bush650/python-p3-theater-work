@@ -7,7 +7,6 @@ project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 print(f"Project root: {project_root}") 
 sys.path.insert(0, project_root)
 
-from lib import models
 
 
 from sqlalchemy import engine_from_config
@@ -29,6 +28,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
+from lib import models
 target_metadata = models.Base.metadata
 
 # other values from the config, defined by the needs of env.py,
