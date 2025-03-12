@@ -17,7 +17,7 @@ class Audition(Base):
     location = Column(String, nullable=False)
     phone = Column(String, nullable=False)
     hired = Column(Boolean, default=False)
-    role_id = Column(Integer, ForeignKey('roles.id', nullable=False))
+    role_id = Column(Integer, ForeignKey('roles.id'))
 
     role = relationship('Role', back_populates='auditions')
     
