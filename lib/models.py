@@ -19,7 +19,7 @@ class Audition(Base):
     hired = Column(Boolean, default=False)
     role_id = Column(Integer, ForeignKey('roles.id'))
 
-    role = relationship('Role', backref=backref('auditions')'auditions'\)
+    role = relationship('Role', backref=backref('auditions'))
     
 
     def call_back(self):
