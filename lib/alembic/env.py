@@ -1,21 +1,9 @@
 from logging.config import fileConfig
 
-import os
-import sys
-
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-print(f"Project root: {project_root}") 
-sys.path.insert(0, project_root)
-
-
-
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
-
-from lib.models import Base
-
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -30,7 +18,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-
+from models import Base
 target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,
@@ -63,7 +51,7 @@ def run_migrations_offline() -> None:
         context.run_migrations()
 
 
-def run_migrations_online():
+def run_migrations_online() -> None:
     """Run migrations in 'online' mode.
 
     In this scenario we need to create an Engine
